@@ -1,6 +1,6 @@
-def decode():
+def decode(str):
     pass
 
 
-def encode():
+def encode(str):
     pass
