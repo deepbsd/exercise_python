@@ -53,4 +53,3 @@ class Robot(object):
                 continue
             else:
                 break
-
