@@ -40,34 +40,33 @@ class SayTest(unittest.TestCase):
     # additional track specific test  
     def test_eight_hundred_and_ten_thousand(self):
         self.assertEqual(say(810000), "eight hundred and ten thousand")
-    @unittest.skip('just starting')
+
     def test_one_million(self):
         self.assertEqual(say(1e6), "one million")
 
     # additional track specific test
-    @unittest.skip('just starting')
     def test_one_million_two(self):
         self.assertEqual(say(1000002), "one million and two")
-    @unittest.skip('just starting')
+
     def test_1002345(self):
         self.assertEqual(
             say(1002345),
             "one million two thousand three hundred and forty-five")
-    @unittest.skip('just starting')
+
     def test_one_billion(self):
         self.assertEqual(say(1e9), "one billion")
-    @unittest.skip('just starting')
+
     def test_987654321123(self):
         self.assertEqual(
             say(987654321123), ("nine hundred and eighty-seven billion "
                                 "six hundred and fifty-four million "
                                 "three hundred and twenty-one thousand "
                                 "one hundred and twenty-three"))
-    @unittest.skip('just starting')
+
     def test_number_to_large(self):
         with self.assertRaises(AttributeError):
             say(1e12)
-    @unittest.skip('just starting')
+
     def test_number_negative(self):
         with self.assertRaises(AttributeError):
             say(-1)

@@ -9,10 +9,6 @@ def say(num):
     ten_100 = { 2:'twenty', 3:'thirty', 4:'forty', 5:'fifty', 6:'sixty', 7:'seventy', 8:'eighty', 9:'ninety' }
 
 
-    def millions(n1, n2): return n1+' million '+n2
-    def billions(n1, n2): return n1+' billion '+n2
-    def trillions(n1, n2): return n1+' trillion '+n2
-
     def lt20(num):
         return up2_20[num]
 
@@ -54,11 +50,37 @@ def say(num):
             s2 = callit (s2)
             return "{} thousand {}".format(s1, s2)
 
+    def millions(num):
+        s1 = int(str(num)[:-6])
+        s2 = int(str(num)[-6:])
+        # print(s1, ' ', s2)
+        s1 = callit(s1)
+        if callit(s2) != 'zero':
+            if s2 < 10:
+                s2 = "and {}".format(callit(s2))
+            else:
+                s2 = callit(s2)
+            return "{} million {}".format(s1, s2)
+        else:
+            s2 = ''
+            return "{} million".format(s1)
 
-           
+    def billions(num):
+        s1 = int(str(num)[:-9])
+        s2 = int(str(num)[-9:])
+        s1 = callit(s1)
+        if callit(s2) != 'zero':
+            s2 = callit(s2)
+        else:
+            s2 = ''
+            return "{} billion".format(s1)
+        return "{} billion {}".format(s1, s2)
+
 
 
     def callit(num):
+        if num < 0 or num >= 1000000000000:
+            raise AttributeError('Please enter a valid number.')
         if num <= 20:
             return up2_20[num]
         if (num > 20) and (num < 100):
@@ -67,10 +89,14 @@ def say(num):
             return hundreds(num)
         if (num >= 1000) and (num < 1000000):
             return thousands(num)
+        if (num >= 1000000) and (num < 1000000000):
+            return millions(num)
+        if (num >= 1000000000) and (num < 1000000000000):
+            return billions(num)
 
 
 
-    return callit(num)
+    return callit(int(num))
 
 
 
@@ -78,7 +104,7 @@ def say(num):
 
 if __name__ == "__main__":
 
-    number = say(10234)
+    number = say(1000000)
 
     print(number)
 
