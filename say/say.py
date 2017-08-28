@@ -104,10 +104,10 @@ def say(num):
 
 if __name__ == "__main__":
 
-    number = say(1000000)
+    number = say(493876213321)
 
     print(number)
 
-    subprocess.call(["say", "{}".format(number)])
+    subprocess.call(["say", "-v", "Karen", "{}".format(number)])
 
 
