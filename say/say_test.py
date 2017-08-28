@@ -18,28 +18,26 @@ class SayTest(unittest.TestCase):
     def test_twenty(self):
         self.assertEqual(say(20), "twenty")
 
-    @unittest.skip('just starting')
     def test_twenty_two(self):
         self.assertEqual(say(22), "twenty-two")
-    @unittest.skip('just starting')
+
     def test_one_hundred(self):
         self.assertEqual(say(100), "one hundred")
-    @unittest.skip('just starting')
+
     # additional track specific test
     def test_one_hundred_twenty(self):
         self.assertEqual(say(120), "one hundred and twenty")
-    @unittest.skip('just starting')
+
     def test_one_hundred_twenty_three(self):
         self.assertEqual(say(123), "one hundred and twenty-three")
-    @unittest.skip('just starting')
+
     def test_one_thousand(self):
         self.assertEqual(say(1000), "one thousand")
-    @unittest.skip('just starting')
+
     def test_one_thousand_two_hundred_thirty_four(self):
         self.assertEqual(say(1234), "one thousand two hundred and thirty-four")
 
-    # additional track specific test
-    @unittest.skip('just starting')    
+    # additional track specific test  
     def test_eight_hundred_and_ten_thousand(self):
         self.assertEqual(say(810000), "eight hundred and ten thousand")
     @unittest.skip('just starting')
