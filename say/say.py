@@ -108,6 +108,6 @@ if __name__ == "__main__":
 
     print(number)
 
-    subprocess.call(["say", "-v", "Karen", "{}".format(number)])
+    subprocess.call(["say", "-v", "Samantha", "{}".format(number)])
 
 
