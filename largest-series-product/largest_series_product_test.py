@@ -53,20 +53,20 @@ class SeriesTest(unittest.TestCase):
 
     def test_reports_1_for_nonempty_string_and_empty_product_0_span(self):
         self.assertEqual(largest_product("123", 0), 1)
-
+ 
     def test_rejects_empty_string_and_nonzero_span(self):
         with self.assertRaises(ValueError):
             largest_product("", 1)
-
+ 
     def test_rejects_invalid_character_in_digits(self):
         with self.assertRaises(ValueError):
             largest_product("1234a5", 2)
-
+ 
     def test_rejects_negative_span(self):
         with self.assertRaises(ValueError):
             largest_product("12345", -1)
 
-    @unittest.skip("extra-credit")
+ 
     def test_project_euler_big_number(self):
         series = (
             "73167176531330624919225119674426574742355349194934969835203127745"
