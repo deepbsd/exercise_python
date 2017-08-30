@@ -35,7 +35,6 @@ def say(num):
     def thousands(num):
         s1 = int(str(num)[:-3])
         s2 = int(str(num)[-3:])
-        #print(s1, ' ', s2)
         if num in [1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000]:
             return "{} thousand".format(up2_20[s1])
         elif num >= 10000:
@@ -53,7 +52,6 @@ def say(num):
     def millions(num):
         s1 = int(str(num)[:-6])
         s2 = int(str(num)[-6:])
-        # print(s1, ' ', s2)
         s1 = callit(s1)
         if callit(s2) != 'zero':
             if s2 < 10:
@@ -95,7 +93,6 @@ def say(num):
             return billions(num)
 
 
-
     return callit(int(num))
 
 
@@ -104,7 +101,7 @@ def say(num):
 
 if __name__ == "__main__":
 
-    number = say(1000000)
+    number = say(917000000000)
 
     print(number)
 
