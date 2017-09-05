@@ -8,7 +8,7 @@ class KindergartenGardenTests(unittest.TestCase):
         self.assertEqual(
             Garden("RC\nGG").plants("Alice"),
             "Radishes Clover Grass Grass".split())
-
+ 
     def test_bob_and_charlies_gardens(self):
         garden = Garden("VVCCGG\nVVCCGG")
         self.assertEqual(garden.plants("Bob"), ["Clover"] * 4)
