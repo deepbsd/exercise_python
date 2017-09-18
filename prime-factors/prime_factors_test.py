@@ -23,7 +23,7 @@ class PrimeFactorsTest(unittest.TestCase):
 
     def test_product_of_primes(self):
         self.assertEqual(prime_factors(901255), [5, 17, 23, 461])
-    @unittest.skip('way too big a number')
+
     def test_factors_include_a_large_prime(self):
         self.assertEqual(prime_factors(93819012551), [11, 9539, 894119])
 
