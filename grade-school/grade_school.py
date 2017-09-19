@@ -17,6 +17,7 @@ class School(object):
             self.dict[grade] = []
             self.dict[grade].append(name)
 
+
     def grade(self, num):
         num = int(num)
         try:
