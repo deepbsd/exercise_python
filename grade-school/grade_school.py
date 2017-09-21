@@ -11,11 +11,9 @@ class School(object):
 
     def add(self, name, ingrade):
         grade = int(ingrade)
-        try:
-            self.dict[grade].append(name)
-        except KeyError:
+        if grade not in self.dict:
             self.dict[grade] = []
-            self.dict[grade].append(name)
+        self.dict[grade].append(name)
 
 
     def grade(self, num):
