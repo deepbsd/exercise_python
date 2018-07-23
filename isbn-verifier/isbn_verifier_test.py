@@ -7,14 +7,12 @@ from isbn_verifier import verify
 
 class IsbnVerifierTest(unittest.TestCase):
 
-    #@unittest.skip("just because")
     def test_valid_isbn_number(self):
         self.assertIs(verify('3-598-21508-8'), True)
 
     def test_invalid_check_digit(self):
         self.assertIs(verify('3-598-21508-9'), False)
 
-    @unittest.skip("just because")
     def test_valid_with_X_check_digit(self):
         self.assertIs(verify('3-598-21507-X'), True)
 
@@ -27,11 +25,9 @@ class IsbnVerifierTest(unittest.TestCase):
     def test_invalid_X_other_than_check_digit(self):
         self.assertIs(verify('3-598-2X507-9'), False)
 
-    @unittest.skip("just because")
     def test_valid_isbn_without_separating_dashes(self):
         self.assertIs(verify('3598215088'), True)
 
-    @unittest.skip("just because")
     def test_valid_isbn_without_separating_dashes_with_X_check_digit(self):
         self.assertIs(verify('359821507X'), True)
 

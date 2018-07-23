@@ -2,8 +2,6 @@ def verify(isbn):
     if isbn == '': 
         return False
     string = isbn.replace('-', '')
-    if len(string) != 10:
-        return False
     num_arr = list(string)
     if num_arr[-1] == 'X':
         num_arr[-1] = '10'
@@ -11,10 +9,10 @@ def verify(isbn):
     for val in num_arr:
         try:
             if int(val) not in range(0,10):
-                return False
-                #print("val: "+val," Array: ",num_arr)
+                #return False
+                print("val: "+val," Array: ",num_arr)
         except ValueError:
-            #print("ValueError on Array: {} Value: {}".format(num_arr, val))
+            print("ValueError on Array: {} Value: {}".format(num_arr, val))
             return False
 
     return sum([int(num_arr[n]*(10-n)) for n in range(0,9+1)]) % 11 == 0
