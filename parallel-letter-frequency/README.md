@@ -1,10 +1,16 @@
-# Gigasecond
+# Parallel Letter Frequency
 
-Calculate the moment when someone has lived for 10^9 seconds.
+Count the frequency of letters in texts using parallel computation.
 
-A gigasecond is 10^9 (1,000,000,000) seconds.
+Parallelism is about doing things in parallel that can also be done
+sequentially. A common example is counting the frequency of letters.
+Create a function that returns the total frequency of each letter in a
+list of texts and that employs parallelism.
 
-### Submitting Exercises
+The letters used consists of ASCII letters `a` to `z`, inclusive, and is case
+insensitive.
+
+## Submitting Exercises
 
 Note that, when trying to submit an exercise, make sure the solution is in the `exercism/python/<exerciseName>` directory.
 
@@ -13,10 +19,6 @@ For example, if you're submitting `bob.py` for the Bob exercise, the submit comm
 
 For more detailed information about running tests, code style and linting,
 please see the [help page](http://exercism.io/languages/python).
-
-## Source
-
-Chapter 9 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=09](http://pine.fm/LearnToProgram/?Chapter=09)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

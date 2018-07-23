@@ -9,9 +9,7 @@ def to_rna(strand):
         if c == 'C': string += 'G'
         if c == 'T': string += 'A'
         if c == 'A': string += 'U'
-        else: string += ''
 
-    if len(string) == len(strand): return string
-    else: return ''
+    return string if len(string) == len(strand) else ''
 
 
