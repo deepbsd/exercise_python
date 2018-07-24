@@ -1,3 +1,8 @@
+SUBLIST = 'SUBLIST'
+SUPERLIST = 'SUPERLIST'
+EQUAL = 'EQUAL'
+UNEQUAL = 'UNEQUAL'
+
 def check_lists(first_list, second_list):
 
     A, B = first_list, second_list
@@ -7,10 +12,10 @@ def check_lists(first_list, second_list):
 
     for n in range(len(B)):
         if A[n:len(A)] == B[n:len(A)]:
-            return 'SUPERLIST'
+            return 'SUBLIST'
     for n in range(len(A)):
         if B[n:len(B)] == A[n:len(B)]:
-            return 'SUBLIST'
+            return 'SUPERLIST'
     if len(A) == len(B):
         for n in range(len(A)):
             if A[n] != B[n]:
