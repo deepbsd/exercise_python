@@ -1,10 +1,6 @@
 # Score categories
 # Change the values as you see fit
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e0b688f0d02754cebd2b30f2efec583a9240b6bc
 def full_house(dice):
     if len(set(dice)) == 2:
         num1 = tuple(sorted(set(dice)))[0]
