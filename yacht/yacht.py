@@ -1,13 +1,9 @@
 # Score categories
 # Change the values as you see fit
 
-def count(dice, count):
-    return len(set(dice)) == count
-
 def full_house(dice):
     if len(set(dice)) == 2:
         num1 = tuple(sorted(set(dice)))[0]
-        num2 = tuple(sorted(set(dice)))[1]
         if dice.count(num1) in (2,3): return sum(dice)
     return 0
 
