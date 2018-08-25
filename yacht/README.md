@@ -75,6 +75,7 @@ You can find your Exercism workspace by running `exercism debug` and looking for
 
 For more detailed information about running tests, code style and linting,
 please see the [help page](http://exercism.io/languages/python).
+please see [Running the Tests](http://exercism.io/tracks/python/tests).
 
 ## Source
 
