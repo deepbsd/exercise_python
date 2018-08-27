@@ -1,16 +1,15 @@
 def primitive_triplets(number_in_triplet):
-    pass
+    return triplets_in_range(1, number_in_triplet)
 
 
 def triplets_in_range(range_start, range_end):
     triplets = []
-    for x in range(range_start, range_end):
-        for y in range(range_start, range_end):
-            square = x**2 + y**2
-            z = square ** 0.5
-            if is_triplet((x,y,int(z))):
-                if triplets.count(tuple(sorted((x,y,int(z))))) < 1:
-                    triplets.append(tuple(sorted((x,y,int(z)))))
+    for x in range(range_start, range_end+1):
+        for y in range(range_start, range_end+1):
+            for z in range(range_start, range_end+1):
+                if is_triplet((x,y,z)):
+                    if triplets.count(tuple(sorted((x,y,z)))) < 1:
+                        triplets.append(tuple(sorted((x,y,z))))
     return triplets
 
 
