@@ -4,18 +4,19 @@ import re
 def parse_markdown(markdown):
 
     result = ""
+    list_items = ""
 
     for line in markdown.split("\n"):
         line = re.sub(r'__(.*?)__',r'<strong>\1</strong>',line)
         line = re.sub(r'_(.*?)_',r'<em>\1</em>',line)
 
-        head_match = re.match('(#+) (.*)',line)
-        hdr_level = len(head_match.group(1))
+        hdr_match = re.match(r'(#+) (.*)', line)
+        if hdr_match: line = "<h{0}>{1}</h{0}>".format(len(hdr_match.group(1)), hdr_match.group(2))
 
-        if head_match:
-            line = "<h{0}>{1}</h{0}>".format(hdr_level,head_match.group(2))
-
-        
+        li_match = re.match('^* (.*)',line)
+        if li_match: 
+            line = "<li>"+li_match.group(1)+"</li>"
+            list_items += line
 
         #h1_match = re.match('# (.*)',line)
         #h2_match = re.match('## (.*)',line)
@@ -45,6 +46,12 @@ def parse_markdown(markdown):
 
         #if not par_match:
         #    line = "{}".format(return_paragraph(line))
+
+
+        #list_items = "<ul>"+list_items+"</ul>"
+
+        p_unmatch = re.match('<h|<ul|<p|<li',line)
+        if not p_unmatch: line = "<p>"+line+"</p>"
 
         result += line
 

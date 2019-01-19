@@ -7,17 +7,17 @@ from markdown_edit import parse_markdown
 
 class MarkdownTest(unittest.TestCase):
 
-    #@unittest.skip("skipping test...")
+    @unittest.skip("skipping test...")
     def test_paragraph(self):
         self.assertEqual(parse_markdown('This will be a paragraph'),
                          '<p>This will be a paragraph</p>')
 
-    #@unittest.skip("skipping test...")
+    @unittest.skip("skipping test...")
     def test_italics(self):
         self.assertEqual(parse_markdown('_This will be italic_'),
                          '<p><em>This will be italic</em></p>')
 
-    #@unittest.skip("skipping test...")
+    @unittest.skip("skipping test...")
     def test_bold(self):
         self.assertEqual(parse_markdown('__This will be bold__'),
                          '<p><strong>This will be bold</strong></p>')
@@ -27,17 +27,17 @@ class MarkdownTest(unittest.TestCase):
         self.assertEqual(parse_markdown('This will _be_ __mixed__'),
                          '<p>This will <em>be</em> <strong>mixed</strong></p>')
 
-    @unittest.skip("skipping test...")
+    #@unittest.skip("skipping test...")
     def test_h1(self):
         self.assertEqual(parse_markdown('# This will be an h1'),
                          '<h1>This will be an h1</h1>')
 
-    @unittest.skip("skipping test...")
+    #@unittest.skip("skipping test...")
     def test_h2(self):
         self.assertEqual(parse_markdown('## This will be an h2'),
                          '<h2>This will be an h2</h2>')
 
-    @unittest.skip("skipping test...")
+    #@unittest.skip("skipping test...")
     def test_h6(self):
         self.assertEqual(parse_markdown(
             '###### This will be an h6'), '<h6>This will be an h6</h6>')
