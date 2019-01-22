@@ -87,51 +87,51 @@ class ClockTest(unittest.TestCase):
         self.assertEqual(str(Clock(-121, -5810)), '22:10')
 
     # Test adding and subtracting minutes.
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_minutes(self):
         self.assertEqual(str(Clock(10, 0) + 3), '10:03')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_no_minutes(self):
         self.assertEqual(str(Clock(6, 41) + 0), '06:41')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_to_next_hour(self):
         self.assertEqual(str(Clock(0, 45) + 40), '01:25')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_more_than_one_hour(self):
         self.assertEqual(str(Clock(10, 0) + 61), '11:01')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_more_than_two_hours_with_carry(self):
         self.assertEqual(str(Clock(0, 45) + 160), '03:25')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_across_midnight(self):
         self.assertEqual(str(Clock(23, 59) + 2), '00:01')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_more_than_one_day(self):
         self.assertEqual(str(Clock(5, 32) + 1500), '06:32')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_add_more_than_two_days(self):
         self.assertEqual(str(Clock(1, 1) + 3500), '11:21')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_minutes(self):
         self.assertEqual(str(Clock(10, 3) - 3), '10:00')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_to_previous_hour(self):
         self.assertEqual(str(Clock(10, 3) - 30), '09:33')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_more_than_an_hour(self):
         self.assertEqual(str(Clock(10, 3) - 70), '08:53')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_across_midnight(self):
         self.assertEqual(str(Clock(0, 3) - 4), '23:59')
 
