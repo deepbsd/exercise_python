@@ -208,11 +208,11 @@ class ClockTest(unittest.TestCase):
     def test_clocks_with_negative_hours_and_minutes(self):
         self.assertEqual(Clock(7, 32), Clock(-12, -268))
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_clocks_with_negative_hours_and_minutes_that_wrap(self):
         self.assertEqual(Clock(18, 7), Clock(-54, -11513))
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_full_clock_and_zeroed_clock(self):
         self.assertEqual(Clock(24, 0), Clock(0, 0))
 
