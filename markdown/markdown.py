@@ -2,66 +2,43 @@ import re
 
 
 def parse_markdown(markdown):
-    lines = markdown.split('\n')
-    res = ''
-    in_list = False
-    for i in lines:
-        if re.match('###### (.*)', i) is not None:
-            i = '<h6>' + i[7:] + '</h6>'
-        elif re.match('## (.*)', i) is not None:
-            i = '<h2>' + i[3:] + '</h2>'
-        elif re.match('# (.*)', i) is not None:
-            i = '<h1>' + i[2:] + '</h1>'
-        m = re.match(r'\* (.*)', i)
-        if m:
-            if not in_list:
-                in_list = True
-                is_bold = False
-                is_italic = False
-                curr = m.group(1)
-                m1 = re.match('(.*)__(.*)__(.*)', curr)
-                if m1:
-                    curr = m1.group(1) + '<strong>' + \
-                        m1.group(2) + '</strong>' + m1.group(3)
-                    is_bold = True
-                m1 = re.match('(.*)_(.*)_(.*)', curr)
-                if m1:
-                    curr = m1.group(1) + '<em>' + m1.group(2) + \
-                        '</em>' + m1.group(3)
-                    is_italic = True
-                i = '<ul><li>' + curr + '</li>'
-            else:
-                is_bold = False
-                is_italic = False
-                curr = m.group(1)
-                m1 = re.match('(.*)__(.*)__(.*)', curr)
-                if m1:
-                    is_bold = True
-                m1 = re.match('(.*)_(.*)_(.*)', curr)
-                if m1:
-                    is_italic = True
-                if is_bold:
-                    curr = m1.group(1) + '<strong>' + \
-                        m1.group(2) + '</strong>' + m1.group(3)
-                if is_italic:
-                    curr = m1.group(1) + '<em>' + m1.group(2) + \
-                        '</em>' + m1.group(3)
-                i = '<li>' + curr + '</li>'
-        else:
-            if in_list:
-                i = '</ul>+i'
-                in_list = False
 
-        m = re.match('<h|<ul|<p|<li', i)
-        if not m:
-            i = '<p>' + i + '</p>'
-        m = re.match('(.*)__(.*)__(.*)', i)
-        if m:
-            i = m.group(1) + '<strong>' + m.group(2) + '</strong>' + m.group(3)
-        m = re.match('(.*)_(.*)_(.*)', i)
-        if m:
-            i = m.group(1) + '<em>' + m.group(2) + '</em>' + m.group(3)
-        res += i
-    if in_list:
-        res += '</ul>'
-    return res
+    result = ""
+    hdr_line = ""
+    list_items = []
+    include_hdr = False
+
+    def build_ul(list):
+        return "".join(list)
+
+    for line in markdown.split("\n"):
+        line = re.sub(r'__(.*?)__',r'<strong>\1</strong>',line)
+        line = re.sub(r'_(.*?)_',r'<em>\1</em>',line)
+
+        hdr_match = re.match(r'(#+) (.*)', line)
+        if hdr_match: 
+            line = "<h{0}>{1}</h{0}>".format(len(hdr_match.group(1)), hdr_match.group(2))
+            hdr_line = line
+        if hdr_match: include_hdr = True
+
+        li_match = re.match('^\* (.*)',line)
+        if li_match: 
+            item = "<li>"+li_match.group(1)+"</li>"
+            if list_items and list_items[0] != "<ul>": list_items.insert(0, "<ul>")
+            if list_items and list_items[-1] == "</ul>":  list_items.pop()
+            list_items.append(item)
+            if list_items[-1] != "</ul>": list_items.append("</ul>")
+
+        p_unmatch = re.match('<h|<ul|<p|<li|\*',line)
+        if not p_unmatch: line = "<p>"+line+"</p>"
+
+        result += line
+
+    if include_hdr and list_items: 
+        list_items.insert(0,hdr_line)
+        result = build_ul(list_items)
+    if list_items and not include_hdr: result = build_ul(list_items)
+    
+
+    return result
+

@@ -1,6 +1,6 @@
 import unittest
-#from markdown import parse_markdown
-from markdown_edit import parse_markdown
+from markdown import parse_markdown
+#from markdown_edit import parse_markdown
 
 
 # Tests adapted from `problem-specifications//canonical-data.json` @ v1.3.0

@@ -35,7 +35,7 @@ def parse_markdown(markdown):
         result += line
 
     if include_hdr and list_items: 
-        list_items.insert(0, hdr_line)
+        list_items.insert(0,hdr_line)
         result = build_ul(list_items)
     if list_items and not include_hdr: result = build_ul(list_items)
     
