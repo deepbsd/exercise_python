@@ -7,8 +7,8 @@ class Clock(object):
     def __repr__(self):
         return "{:02}:{:02}".format(self.hour, self.minute)
 
-    def __eq__(self, other):
-        pass
+    def __eq__(self, offset):
+        return self.hour == offset.hour and self.minute == offset.minute
 
     def __add__(self, minutes):
         return Clock(self.hour, self.minutes + minutes)
