@@ -5,6 +5,7 @@ def parse_markdown(markdown):
 
     result = ""
     list_items = []
+    include_hdr = False
 
     def build_ul(list):
         return "".join(list)
@@ -15,6 +16,7 @@ def parse_markdown(markdown):
 
         hdr_match = re.match(r'(#+) (.*)', line)
         if hdr_match: line = "<h{0}>{1}</h{0}>".format(len(hdr_match.group(1)), hdr_match.group(2))
+        if hdr_match: include_hdr = True
 
         li_match = re.match('^\* (.*)',line)
         if li_match: 
@@ -24,13 +26,16 @@ def parse_markdown(markdown):
             list_items.append(item)
             if list_items[-1] != "</ul>": list_items.append("</ul>")
 
-        
         p_unmatch = re.match('<h|<ul|<p|<li',line)
         if not p_unmatch: line = "<p>"+line+"</p>"
 
         result += line
 
-    if list_items: result = build_ul(list_items)
+    if include_hdr and list_items: 
+        list_items.insert(0,line)
+        result = build_ul(list_items)
+    if list_items and not include_hdr: result = build_ul(list_items)
+    
 
     return result
 

@@ -48,7 +48,7 @@ class MarkdownTest(unittest.TestCase):
                          '<ul><li>Item 1</li>'
                          '<li>Item 2</li></ul>')
 
-    @unittest.skip("skipping test...")
+    #@unittest.skip("skipping test...")
     def test_little_bit_of_everything(self):
         self.assertEqual(parse_markdown(
             '# Header!\n* __Bold Item__\n* _Italic Item_'),
