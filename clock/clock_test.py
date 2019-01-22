@@ -135,24 +135,24 @@ class ClockTest(unittest.TestCase):
     def test_subtract_across_midnight(self):
         self.assertEqual(str(Clock(0, 3) - 4), '23:59')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_more_than_two_hours(self):
         self.assertEqual(str(Clock(0, 0) - 160), '21:20')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_more_than_two_hours_with_borrow(self):
         self.assertEqual(str(Clock(6, 15) - 160), '03:35')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_more_than_one_day(self):
         self.assertEqual(str(Clock(5, 32) - 1500), '04:32')
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_subtract_more_than_two_days(self):
         self.assertEqual(str(Clock(2, 20) - 3000), '00:20')
 
     # Construct two separate clocks, set times, test if they are equal.
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_clocks_with_same_time(self):
         self.assertEqual(Clock(15, 37), Clock(15, 37))
 
