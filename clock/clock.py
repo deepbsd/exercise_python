@@ -1,7 +1,6 @@
 class Clock(object):
     def __init__(self, hour, minute):
-        hour += minute // 60
-        self.hour = hour % 24
+        self.hour = (hour + (minute // 60)) % 24
         self.minute = minute % 60
 
     def __repr__(self):
