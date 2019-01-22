@@ -55,13 +55,13 @@ class MarkdownTest(unittest.TestCase):
             '<h1>Header!</h1><ul><li><strong>Bold Item</strong></li>'
             '<li><em>Italic Item</em></li></ul>')
 
-    @unittest.skip("skipping test...")
+    #@unittest.skip("skipping test...")
     def test_symbols_in_the_header_text_that_should_not_be_interpreted(self):
         self.assertEqual(
             parse_markdown('# This is a header with # and * in the text'),
             '<h1>This is a header with # and * in the text</h1>')
 
-    @unittest.skip("skipping test...")
+    #@unittest.skip("skipping test...")
     def test_symbols_in_the_list_item_text_that_should_not_be_interpreted(
             self):
         self.assertEqual(
