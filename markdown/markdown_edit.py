@@ -4,6 +4,7 @@ import re
 def parse_markdown(markdown):
 
     result = ""
+    hdr_line = ""
     list_items = []
     include_hdr = False
 
@@ -15,7 +16,9 @@ def parse_markdown(markdown):
         line = re.sub(r'_(.*?)_',r'<em>\1</em>',line)
 
         hdr_match = re.match(r'(#+) (.*)', line)
-        if hdr_match: line = "<h{0}>{1}</h{0}>".format(len(hdr_match.group(1)), hdr_match.group(2))
+        if hdr_match: 
+            line = "<h{0}>{1}</h{0}>".format(len(hdr_match.group(1)), hdr_match.group(2))
+            hdr_line = line
         if hdr_match: include_hdr = True
 
         li_match = re.match('^\* (.*)',line)
@@ -26,13 +29,13 @@ def parse_markdown(markdown):
             list_items.append(item)
             if list_items[-1] != "</ul>": list_items.append("</ul>")
 
-        p_unmatch = re.match('<h|<ul|<p|<li',line)
+        p_unmatch = re.match('<h|<ul|<p|<li|\*',line)
         if not p_unmatch: line = "<p>"+line+"</p>"
 
         result += line
 
     if include_hdr and list_items: 
-        list_items.insert(0,line)
+        list_items.insert(0, hdr_line)
         result = build_ul(list_items)
     if list_items and not include_hdr: result = build_ul(list_items)
     
