@@ -11,14 +11,14 @@ class TwelveDaysTest(unittest.TestCase):
                     "a Partridge in a Pear Tree."]
         self.assertEqual(recite(1, 1), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse2(self):
         expected = ["On the second day of Christmas my true love gave to me: "
                     "two Turtle Doves, "
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(2, 2), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse3(self):
         expected = ["On the third day of Christmas my true love gave to me: "
                     "three French Hens, "
@@ -26,7 +26,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(3, 3), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse4(self):
         expected = ["On the fourth day of Christmas my true love gave to me: "
                     "four Calling Birds, "
@@ -35,7 +35,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(4, 4), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse5(self):
         expected = ["On the fifth day of Christmas my true love gave to me: "
                     "five Gold Rings, "
@@ -45,7 +45,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(5, 5), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse6(self):
         expected = ["On the sixth day of Christmas my true love gave to me: "
                     "six Geese-a-Laying, "
@@ -56,7 +56,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(6, 6), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse7(self):
         expected = ["On the seventh day of Christmas my true love gave to me: "
                     "seven Swans-a-Swimming, "
@@ -68,7 +68,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(7, 7), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse8(self):
         expected = ["On the eighth day of Christmas my true love gave to me: "
                     "eight Maids-a-Milking, "
@@ -81,7 +81,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(8, 8), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse9(self):
         expected = ["On the ninth day of Christmas my true love gave to me: "
                     "nine Ladies Dancing, "
@@ -95,7 +95,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(9, 9), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse10(self):
         expected = ["On the tenth day of Christmas my true love gave to me: "
                     "ten Lords-a-Leaping, "
@@ -110,7 +110,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(10, 10), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse11(self):
         expected = ["On the eleventh day of Christmas "
                     "my true love gave to me: "
