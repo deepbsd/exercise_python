@@ -4,7 +4,7 @@ def recite(start_verse, end_verse):
             "eighth", "ninth", "tenth", "eleventh", "twelfth"]
 
     gifts = [
-            "a Partridge in a Pear Tree",
+            "and a Partridge in a Pear Tree",
             "two Turtle Doves",
             "three French Hens",
             "four Calling Birds",
@@ -18,9 +18,9 @@ def recite(start_verse, end_verse):
             "twelve Drummers Drumming",
             ]
 
-    dict = { "first": gifts[0],
-            "second": gifts[1::-1],
-            "third": gifts[2::-1],
+    dict = { "first": "".join(gifts[0]),
+            "second": ", ".join(gifts[1::-1]),
+            "third": ", ".join(gifts[2::-1]),
             "fourth": gifts[3::-1],
             "fifth": gifts[4::-1],
             "sixth": gifts[5::-1],
@@ -32,13 +32,14 @@ def recite(start_verse, end_verse):
             "twelfth": gifts[11::-1],
             }
 
-    refrain = "On the {} day of Christmas, my true love gave to me: ".format(days[start_verse-1])
+    refrain = "On the {} day of Christmas my true love gave to me: ".format(days[start_verse-1])
 
     result = [refrain]
 
     for daynum in range(start_verse-1, end_verse):
         day = days[daynum]
-        result.append(dict[day])
+        verse = refrain + "".join(dict[day])
+        result[0] = verse
 
     return result
 
@@ -46,5 +47,5 @@ def recite(start_verse, end_verse):
 
 
 if __name__ == "__main__":
-    print(recite(2,2))
+    print(recite(3,3))
 
