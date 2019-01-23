@@ -127,7 +127,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(11, 11), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_verse12(self):
         expected = ["On the twelfth day of Christmas my true love gave to me: "
                     "twelve Drummers Drumming, "

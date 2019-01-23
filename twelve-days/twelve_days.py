@@ -18,7 +18,7 @@ def recite(start_verse, end_verse):
             "twelve Drummers Drumming",
             ]
 
-    if start_verse > 1: gifts[0] = "and a Partridge in a Pear Tree"
+    if start_verse > 1: gifts[0] = "and " + gifts[0]
 
     dict = { "first": "".join(gifts[0]),
             "second": ", ".join(gifts[1::-1]),
