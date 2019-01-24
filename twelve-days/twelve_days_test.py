@@ -144,7 +144,7 @@ class TwelveDaysTest(unittest.TestCase):
                     "and a Partridge in a Pear Tree."]
         self.assertEqual(recite(12, 12), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_first_three_verses_of_the_song(self):
         expected = [recite(n, n)[0] for n in range(1, 4)]
         self.assertEqual(recite(1, 3), expected)

@@ -18,7 +18,7 @@ def recite(start_verse, end_verse):
             "twelve Drummers Drumming",
             ]
 
-    if start_verse > 1: gifts[0] = "and " + gifts[0]
+    #if start_verse > 1: gifts[0] = "and " + gifts[0]
 
     dict = { "first": "".join(gifts[0]),
             "second": ", ".join(gifts[1::-1]),
@@ -33,15 +33,15 @@ def recite(start_verse, end_verse):
             "eleventh": ", ".join(gifts[10::-1]),
             "twelfth": ", ".join(gifts[11::-1]),
             }
-
-    refrain = "On the {} day of Christmas my true love gave to me: ".format(days[start_verse-1])
-
-    result = [refrain]
+    result = [""]
 
     for daynum in range(start_verse-1, end_verse):
         day = days[daynum]
+        if daynum > 0 : gifts[0] = "and " + gifts[0]
+        refrain = "On the {} day of Christmas my true love gave to me: ".format(day)
+        #result = [""]
         verse = refrain + "".join(dict[day]) + "."
-        result[0] = verse
+        result[0] += verse
 
     return result
 
@@ -49,5 +49,5 @@ def recite(start_verse, end_verse):
 
 
 if __name__ == "__main__":
-    print(recite(3,3))
+    print(recite(1,3))
 
