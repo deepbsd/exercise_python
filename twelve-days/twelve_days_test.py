@@ -149,12 +149,12 @@ class TwelveDaysTest(unittest.TestCase):
         expected = [recite(n, n)[0] for n in range(1, 4)]
         self.assertEqual(recite(1, 3), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_three_verses_from_the_middle_of_the_song(self):
         expected = [recite(n, n)[0] for n in range(4, 7)]
         self.assertEqual(recite(4, 6), expected)
 
-    @unittest.skip("skipping for now")
+    #@unittest.skip("skipping for now")
     def test_the_whole_song(self):
         expected = [recite(n, n)[0] for n in range(1, 13)]
         self.assertEqual(recite(1, 12), expected)
