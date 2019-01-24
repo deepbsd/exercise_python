@@ -35,5 +35,5 @@ def recite(start_verse, end_verse):
 
 
 if __name__ == "__main__":
-    print(recite(1,3))
+    print(recite(1,12))
 
