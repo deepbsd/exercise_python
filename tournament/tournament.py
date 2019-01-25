@@ -28,11 +28,9 @@ def tally(tournament_results):
             teams[team1]['MP'] += 1; teams[team1]['D'] += 1; teams[team1]['P'] += 1
             teams[team2]['MP'] += 1; teams[team2]['D'] += 1; teams[team2]['P'] += 1
 
-    #teams = sorted(teams.values())
-
-    #for team,val in teams.items():
-    #    for val in val.values():
-    #        print(team, ": ",val)
+    #for team, val in teams.items():
+    #    for k,v in val.items():
+    #        if k == "P": print(team,' points: ',v)
 
     for key, team in teams.items():
         if team['MP']: table += "{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}\n".format(key, team['MP'], team['W'], team['D'], team['L'], team['P'])
