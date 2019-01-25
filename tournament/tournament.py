@@ -1,9 +1,7 @@
 import re
 
 def tally(tournament_results):
-    header = 'Team                           | MP |  W |  D |  L |  P'
-
-    #stats = {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0}
+    header = "Team                           | MP |  W |  D |  L |  P\n"
 
     teams = {
             'Allegoric Alaskans': {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
@@ -12,14 +10,40 @@ def tally(tournament_results):
             'Courageous Californians': {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
             }
 
-    for line in tournament_results:
-        print(line)
-        m = re.search('(.*);(.*);(.*)',line)
+    table = header
 
-    return m.group(1)
+    lines = tournament_results.split("\n")
+
+    for line in lines:
+        if not line: break
+        m = re.search('(.*);(.*);(.*)\n?',line)
+        team1 = m.group(1); team2 = m.group(2); outcome = m.group(3)
+        if outcome == "win":
+            teams[team1]['MP'] += 1; teams[team1]['W'] += 1; teams[team1]['P'] += 3
+            teams[team2]['MP'] += 1; teams[team2]['L'] += 1; 
+        elif outcome == "loss":
+            teams[team1]['MP'] += 1; teams[team1]['L'] += 1; 
+            teams[team2]['MP'] += 1; teams[team2]['W'] += 1; teams[team2]['P'] += 3
+        elif outcome == "draw":
+            teams[team1]['MP'] += 1; teams[team1]['D'] += 1; teams[team1]['D'] += 1
+            teams[team2]['MP'] += 1; teams[team2]['D'] += 1; teams[team2]['D'] += 1
+        else:
+            print("Something's WRONG!!!")
+
+    #teams = sorted(teams.values())
+
+    for team,val in teams.items():
+        for val in val.values():
+            print(team, ": ",val)
+
+    for key, team in teams.items():
+        if team['MP']: table += "{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}\n".format(key, team['MP'], team['W'], team['D'], team['L'], team['P'])
+
+    table = table.rstrip("\n")
+    return table
 
 
 
 
 if __name__ == "__main__":
-    print(tally('whatever;whoever;win'))
+    print(tally('Blithering Badgers;Allegoric Alaskans;draw'))
