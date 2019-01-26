@@ -12,6 +12,8 @@ def tally(tournament_results):
 
     table = header
 
+    output = []
+
     lines = tournament_results.split("\n")
 
     for line in lines:
@@ -35,7 +37,16 @@ def tally(tournament_results):
     for key, team in teams.items():
         if team['MP']: table += "{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}\n".format(key, team['MP'], team['W'], team['D'], team['L'], team['P'])
 
+        if team['MP']: output.append("{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}\n".format(key, team['MP'], team['W'], team['D'], team['L'], team['P']))
+        
+
+
+    output[-1] = output[-1].rstrip("\n")
+    for line in output:
+        print(line)
+    
     table = table.rstrip("\n")
+    #return table
     return table
 
 
