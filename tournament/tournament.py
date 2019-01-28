@@ -30,22 +30,21 @@ def tally(tournament_results):
 
 
     for key, team in teams.items():
-        if team['MP']: output.append("{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}\n".format(key, team['MP'], team['W'], team['D'], team['L'], team['P']))
+        if team['MP']: output.append("{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}".format(key, team['MP'], team['W'], team['D'], team['L'], team['P']))
         
 
 
-    for line in output:
-        line = line[::-1]
-    output = sorted(output)
-    for line in output:
-        line = line[::-1]
+    for num, line in enumerate(output):
+        output[num] = line[::-1]
+    output = sorted(output, reverse=True)
+    for num, line in enumerate(output):
+        output[num] = line[::-1]
     
-        
-    
-    return header+"".join(output).rstrip("\n")
+    if output: return header+"\n".join(output).rstrip("\n")
+    else: return header.rstrip("\n")
 
 
 
 
 if __name__ == "__main__":
-    print(tally('Blithering Badgers;Allegoric Alaskans;draw'))
+    print(tally('Allegoric Alaskans;Blithering Badgers;draw'))

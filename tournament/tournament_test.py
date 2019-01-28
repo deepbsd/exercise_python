@@ -73,7 +73,7 @@ class TournamentTest(unittest.TestCase):
                  'Courageous Californians        |  2 |  0 |  0 |  2 |  0')
         self.assertEqual(tally(results), table)
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_typical_input(self):
         results = ('Allegoric Alaskans;Blithering Badgers;win\n'
                    'Devastating Donkeys;Courageous Californians;draw\n'
