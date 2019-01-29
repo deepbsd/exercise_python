@@ -1,5 +1,6 @@
 from random import choice, randint
 from string import ascii_uppercase
+import random
 
 class Robot(object):
     def __init__(self):
@@ -13,5 +14,9 @@ class Robot(object):
 
 
 if __name__ == "__main__":
+    random.seed('totally random')
     robby = Robot()
+    print(robby.name)
+    random.seed('totally random')
+    robby.reset()
     print(robby.name)
