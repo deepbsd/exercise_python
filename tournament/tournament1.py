@@ -30,42 +30,53 @@ def tally(tournament_results):
 
 
     # update the values for each team and game and append to output list
-    for key, team in teams.items():
-        if team['MP']: output.append("{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}".format(key, team['MP'], team['W'], team['D'], team['L'], team['P']))
+    #for key, team in teams.items():
+    #    if team['MP']: output.append("{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}".format(key, team['MP'], team['W'], team['D'], team['L'], team['P']))
         
+    
 
 
     # Call a sort method on the list
 
 
+    # so if MP is equal don't reverse sort; if MP unequal, then reverse sort
     
     # sort the teams by total points
-    for num, line in enumerate(output):
-        output[num] = line[::-1]
-    output = sorted(output) # , reverse=True)
-    for num, line in enumerate(output):
-        output[num] = line[::-1]
+    #for num, line in enumerate(output):
+    #    output[num] = line[::-1]
+    #output = sorted(output, reverse=True)
+    #for num, line in enumerate(output):
+    #    output[num] = line[::-1]
     
 
 
     # return the list as a string with last newline omitted
-    if output: return header+"\n".join(output).rstrip("\n")
-    else: return header.rstrip("\n")
+    #if output: return header+"\n".join(output).rstrip("\n")
+    #else: return header.rstrip("\n")
 
-    #def sort_list(teams):
-    #    new_list = []
-    #    for name, data in sorted(teams.items(), key = lambda team: (team[-1], team[0:5])):
-    #        new_list.append(teams[name])
-    #        
-    #    return new_list
+    new_list = []
+    #for name, data in sorted(teams.items(), key = lambda team: (team[-1], team[0:5])):
+    for team in sorted(teams.keys(), key = lambda team: (-_teamscore(**teams[team]), team)):
+        #new_list.append(teams[name])
+        print("name: {} data: {}".format(name, data))
+            
+    return new_list
 
 
     #    #newdict = sorted(dict.keys(), key=lambda team: (team[0], team[1]['P']))
     #return sort_list(teams)
+
+def _teamscore(*, W, L, D):
+    return 3 * W + D
 
 
 
 
 
 if __name__ == "__main__":
-    print(tally('Allegoric Alaskans;Blithering Badgers;draw'))
+    print(tally('Allegoric Alaskans;Blithering Badgers;win\n'
+                   'Devastating Donkeys;Courageous Californians;draw\n'
+                   'Devastating Donkeys;Allegoric Alaskans;win\n'
+                   'Courageous Californians;Blithering Badgers;loss\n'
+                   'Blithering Badgers;Devastating Donkeys;loss\n'
+                   'Allegoric Alaskans;Courageous Californians;win'))
