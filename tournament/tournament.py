@@ -1,15 +1,15 @@
 import re
-from itemgetter import operator
+from operator import itemgetter 
 
 def tally(tournament_results):
     header = "Team                           | MP |  W |  D |  L |  P\n"
 
     # pre-built object that can be updated with values
     teams = {
-            {'name': 'Allegoric Alaskans', 'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
-            {'name': 'Blithering Badgers', 'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
-            {'name': 'Devastating Donkeys', 'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
-            {'name': 'Courageous Californians', 'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
+            'Allegoric Alaskans': {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
+            'Blithering Badgers': {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
+            'Devastating Donkeys': {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
+            'Courageous Californians': {'MP': 0, 'W': 0, 'D': 0, 'L': 0, 'P': 0},
             }
 
     output = []
@@ -36,6 +36,7 @@ def tally(tournament_results):
         if team['MP']: output.append("{:<30s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s} | {!s:>2s}".format(key, team['MP'], team['W'], team['D'], team['L'], team['P']))
         
 
+    
     #print("output: ",output)
     ## sort the teams by total points
     #for num, line in enumerate(output):
@@ -49,10 +50,15 @@ def tally(tournament_results):
     #else: return header.rstrip("\n")
 
     def sort_list(teams):
-        teams = sorted(teams, key=lambda team: (team['P'], team['name'])
+        new_list = []
+        for name, data in sorted(teams.items(), key = lambda team: (team[-1], team[0:5])):
+            new_list.append(teams[name])
+            
+        return new_list
+
 
         #newdict = sorted(dict.keys(), key=lambda team: (team[0], team[1]['P']))
-
+    return sort_list(teams)
 
 
 

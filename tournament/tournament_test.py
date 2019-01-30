@@ -1,6 +1,6 @@
 import unittest
 
-from tournament import tally
+from tournament1 import tally
 
 
 # Tests adapted from `problem-specifications//canonical-data.json` @ v1.4.0
@@ -28,7 +28,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  1 |  0 |  0 |  1 |  0')
         self.assertEqual(tally(results), table)
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_a_different_team_can_win(self):
         results = 'Blithering Badgers;Allegoric Alaskans;win'
         table = ('Team                           | MP |  W |  D |  L |  P\n'
@@ -44,7 +44,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  1 |  0 |  1 |  0 |  1')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_there_can_be_more_than_one_match(self):
         results = ('Allegoric Alaskans;Blithering Badgers;win\n'
                    'Allegoric Alaskans;Blithering Badgers;win')
@@ -53,7 +53,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  2 |  0 |  0 |  2 |  0')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_there_can_be_more_than_one_winner(self):
         results = ('Allegoric Alaskans;Blithering Badgers;loss\n'
                    'Allegoric Alaskans;Blithering Badgers;win')
@@ -62,7 +62,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  2 |  1 |  0 |  1 |  3')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_there_can_be_more_than_two_teams(self):
         results = ('Allegoric Alaskans;Blithering Badgers;win\n'
                    'Blithering Badgers;Courageous Californians;win\n'
@@ -73,7 +73,7 @@ class TournamentTest(unittest.TestCase):
                  'Courageous Californians        |  2 |  0 |  0 |  2 |  0')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_typical_input(self):
         results = ('Allegoric Alaskans;Blithering Badgers;win\n'
                    'Devastating Donkeys;Courageous Californians;draw\n'
