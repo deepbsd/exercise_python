@@ -20,7 +20,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  1 |  0 |  0 |  1 |  0')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_a_win_can_also_be_expressed_as_a_loss(self):
         results = 'Blithering Badgers;Allegoric Alaskans;loss'
         table = ('Team                           | MP |  W |  D |  L |  P\n'
@@ -28,7 +28,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  1 |  0 |  0 |  1 |  0')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_a_different_team_can_win(self):
         results = 'Blithering Badgers;Allegoric Alaskans;win'
         table = ('Team                           | MP |  W |  D |  L |  P\n'
@@ -36,7 +36,7 @@ class TournamentTest(unittest.TestCase):
                  'Allegoric Alaskans             |  1 |  0 |  0 |  1 |  0')
         self.assertEqual(tally(results), table)
 
-    #@unittest.skip("skipping for now...")
+    @unittest.skip("skipping for now...")
     def test_a_draw_is_one_point_each(self):
         results = 'Allegoric Alaskans;Blithering Badgers;draw'
         table = ('Team                           | MP |  W |  D |  L |  P\n'
