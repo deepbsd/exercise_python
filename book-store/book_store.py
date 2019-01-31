@@ -14,9 +14,12 @@ def calculate_total(books):
 
     for booknum, book in enumerate(purchase.values()):
         if purchase[booknum+1]: distinct_books += 1
+        discount_pct = discounts[distinct_books-1]
 
-    for booknum, copies in enumerate(purchase.values()):
-        total_discount += ((copies*price) - (price*copies*discounts[copies-1]))
+    total_discount = total_cost*discount_pct
+
+    #for booknum, copies in enumerate(purchase.values()):
+    #    total_discount += ((copies*price) - (price*copies*discounts[copies-1]))
 
     total_cost = int((total_cost - total_discount)*100)
     return total_cost
@@ -28,6 +31,6 @@ def calculate_total(books):
 
 
 if __name__ == "__main__":
-    print(calculate_total([1,1,1]))
+    print(calculate_total([1,2,3,4,5]))
 
 
