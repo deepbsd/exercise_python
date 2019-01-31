@@ -17,7 +17,7 @@ def calculate_total(books):
         discount_pct = discounts[distinct_books-1]
 
     total_discount1 = total_cost*discount_pct
-    total_discount2 = ""
+    total_discount2 = 0.0
     total_discount = max(total_discount1, total_discount2)
 
     #for booknum, copies in enumerate(purchase.values()):
