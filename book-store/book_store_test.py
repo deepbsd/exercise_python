@@ -15,41 +15,53 @@ class BookStoreTest(unittest.TestCase):
     def test_empty_basket(self):
         self.assertEqual(calculate_total([]), 0)
 
+    #@unittest.skip("skipping for now...")
     def test_two_different_books(self):
         self.assertEqual(calculate_total([1, 2]), 1520)
 
+    #@unittest.skip("skipping for now...")
     def test_three_different_books(self):
         self.assertEqual(calculate_total([1, 2, 3]), 2160)
 
+    #@unittest.skip("skipping for now...")
     def test_four_different_books(self):
         self.assertEqual(calculate_total([1, 2, 3, 4]), 2560)
 
+    #@unittest.skip("skipping for now...")
     def test_five_different_books(self):
         self.assertEqual(calculate_total([1, 2, 3, 4, 5]), 3000)
 
+    #@unittest.skip("skipping for now...")
     def test_two_groups_of_4_is_cheaper_than_group_of_5_plus_group_of_3(self):
         self.assertEqual(calculate_total([1, 1, 2, 2, 3, 3, 4, 5]), 5120)
 
+    @unittest.skip("skipping for now...")
     def test_two_groups_of_4_is_cheaper_than_groups_of_5_and_3(self):
         self.assertEqual(calculate_total([1, 1, 2, 3, 4, 4, 5, 5]), 5120)
 
+    @unittest.skip("skipping for now...")
     def test_group_of_4_plus_group_of_2_is_cheaper_than_2_groups_of_3(self):
         self.assertEqual(calculate_total([1, 1, 2, 2, 3, 4]), 4080)
 
+    @unittest.skip("skipping for now...")
     def test_two_each_of_first_4_books_and_1_copy_each_of_rest(self):
         self.assertEqual(calculate_total([1, 1, 2, 2, 3, 3, 4, 4, 5]), 5560)
 
+    @unittest.skip("skipping for now...")
     def test_two_copies_of_each_book(self):
         self.assertEqual(calculate_total([1, 1, 2, 2, 3, 3, 4, 4, 5, 5]), 6000)
 
+    @unittest.skip("skipping for now...")
     def test_three_copies_of_first_book_and_2_each_of_remaining(self):
         self.assertEqual(
             calculate_total([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1]), 6800)
 
+    @unittest.skip("skipping for now...")
     def test_three_each_of_first_2_books_and_2_each_of_remaining_books(self):
         self.assertEqual(
             calculate_total([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 1, 2]), 7520)
 
+    @unittest.skip("skipping for now...")
     def test_four_groups_of_4_are_cheaper_than_2_groups_each_of_5_and_3(self):
         self.assertEqual(
             calculate_total([1, 1, 2, 2, 3, 3, 4, 5, 1, 1, 2, 2, 3, 3, 4, 5]),
