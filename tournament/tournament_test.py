@@ -28,7 +28,7 @@ class TournamentTest(unittest.TestCase):
                  'Blithering Badgers             |  1 |  0 |  0 |  1 |  0')
         self.assertEqual(tally(results), table)
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_a_different_team_can_win(self):
         results = 'Blithering Badgers;Allegoric Alaskans;win'
         table = ('Team                           | MP |  W |  D |  L |  P\n'
@@ -90,7 +90,7 @@ class TournamentTest(unittest.TestCase):
 
         self.assertEqual(tally(results), table)
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_incomplete_competitionnot_not_all_pairs_have_played(self):
         results = ('Allegoric Alaskans;Blithering Badgers;loss\n'
                    'Devastating Donkeys;Allegoric Alaskans;loss\n'
@@ -105,7 +105,7 @@ class TournamentTest(unittest.TestCase):
 
         self.assertEqual(tally(results), table)
 
-    @unittest.skip("skipping for now...")
+    #@unittest.skip("skipping for now...")
     def test_ties_broken_alphabetically(self):
         results = ('Courageous Californians;Devastating Donkeys;win\n'
                    'Allegoric Alaskans;Blithering Badgers;win\n'
