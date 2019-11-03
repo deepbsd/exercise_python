@@ -2,9 +2,8 @@ def calculate_total(books):
 
    # books should be a list of ints from 1-5
     price = 8.0
-    #price = 800
     discounts = {1:0, 2:0.05, 3:0.10, 4:0.20, 5:0.25}
-    purchase = {1:0, 2:0, 3:0, 4:0, 5:0}
+    purchase_dict = {1:0, 2:0, 3:0, 4:0, 5:0}
     total_cost = 0.0
     total_discount = 0.0
     distinct_books = 0
@@ -24,11 +23,11 @@ def calculate_total(books):
    
 
     for book in books:
-        purchase[book] += 1
+        purchase_dict[book] += 1
         # this will be total cost before any discount
         #total_cost += price
 
-    total_cost = sum([copies*price - discounts.get(copies,0) for copies in purchase.values()])
+    total_cost = sum([copies*price - discounts.get(copies,0) for copies in purchase_dict.values()])
 
     # compute discount for entire shebang without grouping
     #for booknum, book in enumerate(purchase.values()):
