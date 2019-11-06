@@ -22,17 +22,15 @@ def calculate_total(books):
             if copies > 0:
                 newgroup[book] = 1
                 purchases_dict[book] -= 1
-        book_groups.append(newgroup)
-
-        print("book_groups: {}".format(book_groups))
+        if (len(newgroup) > 0 ): book_groups.append(newgroup)
 
 
         '''recurse through dictionary until no books remain, then 
         return the array of book groups'''
         if sum(purchase_dict.values()) > 0:
-            grouper(purchase_dict)
+            return grouper(purchase_dict)
         else:
-            print("groups: {}".format(book_groups))
+            print("grouper groups: {}".format(book_groups))
             return book_groups
 
 
@@ -40,14 +38,10 @@ def calculate_total(books):
         purchase_dict = {1:0, 2:0, 3:0, 4:0, 5:0}
         for book in books:
             '''Create a dictionary of quantities for each volume'''
-            print("book: {}".format(book))
             purchase_dict[book] += 1
-            # this will be total cost before any discount
-            #total_cost += price
         return purchase_dict
 
 
-    #total_cost = sum([copies*price - discounts.get(copies,0) for copies in purchase_dict.values()])
 
     '''
     # compute discount for entire shebang without grouping
@@ -63,11 +57,25 @@ def calculate_total(books):
     #total_cost = int((total_cost - total_discount)*100)
     #return total_cost
     '''
+    #total_cost = sum([copies*price - discounts.get(copies,0) for copies in purchase_dict.values()])
+
+    def compute_cost(dict):
+        discount = discounts[len(dict.values())]
+        print("discount: ".format(discount))
+
     purchase_dict = make_purchase_dict(books)
     #print("last purchase_dict: {}".format(purchase_dict))
 
     groups = grouper(purchase_dict)
-    print("last groups: {}".format(groups))
+    print("final groups: ".format(groups))
+
+
+    for dict in groups:
+        print('hey')
+        #print("dict: ".format(dict))
+        #discount = compute_cost(dict)
+        #cost = (len(dict) * 8.00) * (1 - discount) 
+        #print("Discount: ".format(discount))
 
     return groups
 
