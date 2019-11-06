@@ -1,14 +1,11 @@
 def calculate_total(books):
 
-   # books should be a list of ints from 1-5
     price = 8.0
     discounts = {1:0, 2:0.05, 3:0.10, 4:0.20, 5:0.25}
-    #purchase_dict = {1:0, 2:0, 3:0, 4:0, 5:0}
     total_cost = 0.0
     total_discount = 0.0
     purchase_groups = {}
     book_groups = []
-    #distinct_books = 0
 
     def grouper(purchases_dict):
         '''Make the max number of longest groups possible 
@@ -17,7 +14,7 @@ def calculate_total(books):
         customer. This function returns an array of
         dictionaries.'''
         newgroup = {}
-        print("items: {}".format(purchases_dict.items()))
+
         for (book, copies) in purchases_dict.items():
             if copies > 0:
                 newgroup[book] = 1
@@ -30,7 +27,7 @@ def calculate_total(books):
         if sum(purchase_dict.values()) > 0:
             return grouper(purchase_dict)
         else:
-            print("grouper groups: {}".format(book_groups))
+
             return book_groups
 
 
@@ -42,42 +39,21 @@ def calculate_total(books):
         return purchase_dict
 
 
-
-    '''
-    # compute discount for entire shebang without grouping
-    #for booknum, book in enumerate(purchase.values()):
-    #    if purchase[booknum+1]: distinct_books += 1
-    #    discount_pct = discounts[distinct_books-1]
-
-
-    #total_discount1 = total_cost*discount_pct
-    #total_discount2 = grouper(purchase)
-    #total_discount = max(total_discount1, total_discount2)
-
-    #total_cost = int((total_cost - total_discount)*100)
-    #return total_cost
-    '''
-    #total_cost = sum([copies*price - discounts.get(copies,0) for copies in purchase_dict.values()])
-
     def compute_cost(dict):
         discount = discounts[len(dict.values())]
-        print("discount: ".format(discount))
+        price = len(dict.values()) * 8.00
+        total = price - (price*discount)
+        return total
 
     purchase_dict = make_purchase_dict(books)
-    #print("last purchase_dict: {}".format(purchase_dict))
 
     groups = grouper(purchase_dict)
-    print("final groups: ".format(groups))
-
 
     for dict in groups:
-        print('hey')
-        #print("dict: ".format(dict))
-        #discount = compute_cost(dict)
-        #cost = (len(dict) * 8.00) * (1 - discount) 
-        #print("Discount: ".format(discount))
+        total_cost += compute_cost(dict)
 
-    return groups
+
+    return int(total_cost * 100)
 
 
 
