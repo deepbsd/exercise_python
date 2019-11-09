@@ -6,6 +6,7 @@ def calculate_total(books):
     total_discount = 0.0
     purchase_groups = {}
     book_groups = []
+    book_regroups = []
 
     def grouper(purchases_dict):
         '''Make the max number of longest groups possible 
@@ -29,7 +30,8 @@ def calculate_total(books):
             return book_groups
 
     def regrouper(purchase_dict):
-        l_book_groups = book_groups
+        l_book_groups = book_regroups
+        """zero out the array; fresh start"""
         if len(l_book_groups) > 0: l_book_groups = []
         """alternative groupings of purchase_dict"""
         newgroup = {}
@@ -49,6 +51,7 @@ def calculate_total(books):
                         if book % 2 == 0 and book not in group[1].keys():
                             group[0][book] -= 1
                             group[1][book] += 1
+        print("regroup: ".format(l_book_groups))
         return l_book_groups
 
 
