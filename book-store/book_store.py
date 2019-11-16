@@ -29,32 +29,20 @@ def calculate_total(books):
         else:
             return book_groups
 
-    def regrouper(purchase_dict):
-        l_book_groups = book_regroups
-        """zero out the array; fresh start"""
-        if len(l_book_groups) > 0: l_book_groups = []
-        """alternative groupings of purchase_dict"""
-        newgroup = {}
-        for (book, copies) in purchase_dict.items():
-            if copies > 0:
-                newgroup[book] = 1
-                purchase_dict[book] -= 1
-        if (len(newgroup) > 0): l_book_groups.append(newgroup)
-
-        """try to balance group lengths instead of create a one longer group"""
-        if (sum(purchase_dict.values())) > 0: 
-            return regrouper(purchase_dict)
-        else:
-            for group in l_book_groups:
-                if len(group[0]) > len(group[1]):
-                    for (book, copies) in group[0].items():
-                        if book % 2 == 0 and book not in group[1].keys():
-                            group[0][book] -= 1
-                            group[1][book] += 1
-        print("regroup: ".format(l_book_groups))
-        return l_book_groups
-
-
+    def regrouper(purchase_arr):
+        print("Regroup - PD: {}".format(purchase_dict))
+        """Take a purchase dict and balance the length of the two dicts"""
+        new_regroup = []
+        if len(purchase_arr[0]) != len(purchase_arr[1]):
+            diff = abs(len(purchase_arr[0]) - len(purchase_arr[1]))
+            for key in purchase_arr[0].keys():
+                if key not in purchase_arr[1].keys():
+                    purchase_arr[0].pop(key)
+                    purchase_arr[1][key] = purchase_arr[0][key]
+                    new_regroup.append(purchase_arr[0])
+                    new_regroup.append(purchase_arr[1])
+            diff -= 1
+        return new_regroup
 
 
     def make_purchase_dict(books):
@@ -74,7 +62,9 @@ def calculate_total(books):
     purchase_dict = make_purchase_dict(books)
 
     groups = grouper(purchase_dict)
-    groups1 = regrouper(purchase_dict)
+    print("Groups: {}".format(groups))
+    groups1 = regrouper(groups)
+    print("purchase_dict: ".format(purchase_dict))
 
     total_cost1 = 0
     for dict in groups:
