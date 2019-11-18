@@ -63,8 +63,8 @@ def calculate_total(books):
 
     groups = grouper(purchase_dict)
     print("Groups: {}".format(groups))
-    groups1 = regrouper(groups)
-    print("purchase_dict: ".format(purchase_dict))
+    regroups = regrouper(groups)
+    print("regroup: {}".format(regroups))
 
     total_cost1 = 0
     for dict in groups:
